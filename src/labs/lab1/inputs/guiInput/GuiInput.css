@@ -1,0 +1,87 @@
+.gui-wrapper {
+  margin-top: 30px;
+}
+
+.gui-controls {
+  margin-bottom: 25px;
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.gui-label {
+  font-weight: bold;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+
+.retro-select {
+  font-family: 'Courier New', Courier, monospace;
+  padding: 4px 8px;
+  border: 2px solid #ccc;
+  background-color: #fff;
+  cursor: pointer;
+  outline: none;
+}
+
+.retro-select:hover {
+  background-color: #f0f0f0;
+}
+
+.retro-input-line {
+  font-family: 'Courier New', Courier, monospace;
+  padding: 4px 5px;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  width: 100px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.retro-input-line:focus {
+  border-bottom-color: #0000ee6e;
+}
+
+.matrix-container {
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+
+.matrix-table {
+  border-collapse: collapse;
+}
+
+.matrix-header {
+  text-align: left;
+  font-size: 0.7rem;
+  color: #888;
+  padding-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+.divider-cell {
+  text-align: center;
+  font-weight: bold;
+  padding: 0 10px;
+}
+
+.matrix-cell {
+  width: 60px;
+  height: 35px;
+  margin: 2px;
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+  border: 1px solid #eee;
+  font-size: 0.9rem;
+  background-color: #f9f9f9;
+}
+
+.matrix-cell:focus {
+  background-color: #0000ee6e;
+  color: #fff;
+  outline: none;
+}
+
+.vector-cell {
+  border-left: 2px solid #000;
+}

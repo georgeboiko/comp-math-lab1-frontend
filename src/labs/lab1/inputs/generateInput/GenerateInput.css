@@ -1,0 +1,28 @@
+.generate-container {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #eee;
+    background-color: #fafafa;
+}
+
+.gen-row {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.info-box {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #eef6ff;
+    border-left: 4px solid #0000ee;
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+.status-text {
+    font-style: italic;
+    color: #666;
+    margin-top: 10px;
+}

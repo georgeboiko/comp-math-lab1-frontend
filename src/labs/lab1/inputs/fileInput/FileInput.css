@@ -1,0 +1,41 @@
+.file-upload-container {
+    border: 2px dashed #ccc;
+    padding: 20px;
+    text-align: center;
+    margin-top: 20px;
+    transition: all 0.3s;
+}
+
+.file-upload-container:hover {
+    border-color: #0000ee6e;
+    background-color: #f0f0ff;
+}
+
+.hidden-input {
+    display: none;
+}
+
+.file-label {
+    cursor: pointer;
+    font-weight: bold;
+    color: #0000eeb1;
+    text-decoration: underline;
+}
+
+.file-status {
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.file-preview {
+    margin-top: 20px;
+    background: #f9f9f9;
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+    white-space: pre-wrap;
+    font-size: 0.8rem;
+    max-height: 200px;
+    overflow-y: auto;
+}

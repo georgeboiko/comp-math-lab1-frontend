@@ -1,0 +1,47 @@
+body {
+  background-color: #ffffff;
+  color: #000000;
+  font-family: "Courier New", Courier, monospace;
+  margin: 20px;
+}
+
+.container {
+  border-top: 2px solid #ccc;
+  padding-top: 10px;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.labs-list {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.5;
+}
+
+.lab-button {
+  text-decoration: none;
+  color: #0000ee;
+  padding: 2px 5px;
+  display: block;
+}
+
+.lab-button::before {
+  content: "[FILE] ";
+  color: #555;
+  font-weight: bold;
+}
+
+.lab-button:hover {
+  background-color: #0000ee6e;
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.lab-button:visited {
+  color: #551a8b;
+}
