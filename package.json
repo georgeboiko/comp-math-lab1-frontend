@@ -10,6 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "chart.js": "^4.5.1",
+    "function-plot": "^1.25.3",
+    "katex": "^0.16.38",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-router-dom": "^7.13.1"
