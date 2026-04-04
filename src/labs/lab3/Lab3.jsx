@@ -4,11 +4,18 @@ import Rectangles from "./rectangles/Rectangles"
 import Trapeze from "./trapeze/Trapeze"
 import Simpson from "./simpson/Simpson"
 import "./Lab3.css"
+import MonteCarlo from "./monteCarlo/MonteCarlo"
+import RussianRoulette from "./russianRoulette/RussianRoulette"
+import ImportanceSampling from "./importanceSampling/ImportanceSampling"
 
 const METHODS = [
     { label: "/rectangles", component: () => <Rectangles /> },
     { label: "/trapeze",    component: () => <Trapeze />    },
     { label: "/simpson",    component: () => <Simpson />    },
+    { label: "/montecarlo",    component: () => <MonteCarlo />    },
+    { label: "/russianroulette",    component: () => <RussianRoulette />    },
+    { label: "/importancesampling",    component: () => <ImportanceSampling />    }
+
 ]
 
 function Lab3() {

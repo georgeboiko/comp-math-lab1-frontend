@@ -20,10 +20,9 @@ function IntegralForm({ title, endpoints }) {
     const [selectedFnId, setSelectedFnId] = useState(0)
     const [a, setA]   = useState("0")
     const [b, setB]   = useState("2")
-    const [eps, setEps] = useState("0.01")
+    const [eps, setEps] = useState("0.001")
     const [validationError, setValidationError] = useState(null)
 
-    // one result slot per endpoint
     const [results, setResults]   = useState({})
     const [loadings, setLoadings] = useState({})
     const [errors, setErrors]     = useState({})
