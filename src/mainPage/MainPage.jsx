@@ -4,7 +4,8 @@ import "./MainPage.css"
 const AVAILABLE_LABS = [
   { "title": "/lab1", "href": "/lab1" },
   { "title": "/lab2", "href": "/lab2" },
-  { "title": "/lab3", "href": "/lab3" }
+  { "title": "/lab3", "href": "/lab3" },
+  { "title": "/lab4", "href": "/lab4" },
 ]
 
 const GITHUB_LINK = "https://github.com/georgeboiko/comp-math-lab1-on-haskell"
