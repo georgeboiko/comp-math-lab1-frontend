@@ -4,16 +4,20 @@ import "./ApproxForm.css"
 
 Chart.register(...registerables)
 
-const DEFAULT_POINTS = "1.0, 2.1\n2.0, 3.9\n3.0, 6.2\n4.0, 7.8\n5.0, 10.1\n6.0, 12.3\n7.0, 14.0\n8.0, 16.2"
+const DEFAULT_POINTS = "1 1\n2 2\n3 3\n4 4\n5 5\n6 6\n7 7\n8 8"
+
+function normalizeNum(s) {
+    return s.replace(",", ".")
+}
 
 function parsePoints(text) {
     const lines = text.trim().split("\n").filter(l => l.trim() !== "")
     const pts = []
     for (const line of lines) {
-        const parts = line.split(/[\s,;]+/).filter(Boolean)
+        const parts = line.trim().split(/\s+/).filter(Boolean)
         if (parts.length < 2) return null
-        const x = parseFloat(parts[0])
-        const y = parseFloat(parts[1])
+        const x = parseFloat(normalizeNum(parts[0]))
+        const y = parseFloat(normalizeNum(parts[1]))
         if (isNaN(x) || isNaN(y)) return null
         pts.push([x, y])
     }
@@ -33,7 +37,6 @@ function r2Message(r2) {
     return "Слабая аппроксимация (R² < 0.5)"
 }
 
-// Generate smooth curve points for the approximation
 function buildCurvePoints(result, xs) {
     if (!result || !result.lab4IsSuccess) return []
     const name = result.lab4ApproxName ?? ""
@@ -219,6 +222,20 @@ function ApproxForm({ title, url, isAll }) {
     const [results, setResults] = useState(null)
     const [fetchError, setFetchError] = useState(null)
     const [submittedPoints, setSubmittedPoints] = useState(null)
+    const fileInputRef = useRef(null)
+
+    const handleFileLoad = (e) => {
+        const file = e.target.files?.[0]
+        if (!file) return
+        const reader = new FileReader()
+        reader.onload = (ev) => {
+            setPointsText(ev.target.result ?? "")
+            setValidationError(null)
+            setResults(null)
+        }
+        reader.readAsText(file)
+        e.target.value = ""
+    }
 
     const handleSubmit = async () => {
         const pts = parsePoints(pointsText)
@@ -275,7 +292,7 @@ function ApproxForm({ title, url, isAll }) {
             <div className="approx-section-title">--- {title} ---</div>
             <div className="approx-layout">
                 <div className="approx-left">
-                    <p>[POINTS] (x, y — одна точка на строку, 8–12 точек):</p>
+                    <p>[POINTS] (x y — одна точка на строку через пробел, 8–12 точек):</p>
                     <textarea
                         className="approx-textarea"
                         value={pointsText}
@@ -283,19 +300,35 @@ function ApproxForm({ title, url, isAll }) {
                         rows={12}
                         spellCheck={false}
                     />
-                    <div className="approx-hint">Формат: &quot;x, y&quot; или &quot;x y&quot;</div>
+                    <div className="approx-hint">Формат: &quot;x y&quot; (разделитель — пробел; дробная часть через точку или запятую)</div>
 
                     {validationError && (
                         <div className="approx-validation-error">!! {validationError}</div>
                     )}
 
-                    <button
-                        className="retro-btn retro-btn--primary"
-                        onClick={handleSubmit}
-                        disabled={loading}
-                    >
-                        {loading ? "[ CALCULATING... ]" : "[ RUN SOLVER ]"}
-                    </button>
+                    <div className="approx-btn-row">
+                        <button
+                            className="retro-btn retro-btn--primary"
+                            onClick={handleSubmit}
+                            disabled={loading}
+                        >
+                            {loading ? "[ CALCULATING... ]" : "[ RUN SOLVER ]"}
+                        </button>
+                        <button
+                            className="retro-btn retro-btn--secondary"
+                            onClick={() => fileInputRef.current?.click()}
+                            disabled={loading}
+                        >
+                            [ LOAD FILE ]
+                        </button>
+                        <input
+                            ref={fileInputRef}
+                            type="file"
+                            accept=".txt,.csv"
+                            style={{ display: "none" }}
+                            onChange={handleFileLoad}
+                        />
+                    </div>
                 </div>
 
                 <div className="approx-right">

@@ -77,7 +77,6 @@
     color: #000;
     font-size: 0.95rem;
     padding: 6px 16px;
-    align-self: flex-start;
 }
 
 .retro-btn--primary:hover:not(:disabled) {
@@ -88,6 +87,32 @@
 .retro-btn--primary:disabled {
     border-color: #aaa;
     color: #aaa;
+    cursor: default;
+}
+
+.approx-btn-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+}
+
+.retro-btn--secondary {
+    border: 1px solid #555;
+    color: #555;
+    font-size: 0.88rem;
+    padding: 6px 14px;
+}
+
+.retro-btn--secondary:hover:not(:disabled) {
+    border-color: #000;
+    color: #000;
+    background: #f5f5f5;
+}
+
+.retro-btn--secondary:disabled {
+    border-color: #ccc;
+    color: #ccc;
     cursor: default;
 }
 
